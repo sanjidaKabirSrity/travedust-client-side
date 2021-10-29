@@ -1,0 +1,31 @@
+.slider-one {
+    background: linear-gradient(rgba(61, 61, 61, 0.404), rgba(61, 61, 61, 0.404)), url(../../Images/slider-1.jpg) no-repeat center center;
+    background-size: cover;
+    padding: 100px 0px;
+  }
+  .slider-two {
+    background: linear-gradient(rgba(61, 61, 61, 0.404), rgba(61, 61, 61, 0.404)), url(../../Images/slider-2.jpg) no-repeat center center;
+    background-size: cover;
+    padding: 100px 0px;
+  }
+  .slider-three {
+    background:linear-gradient(rgba(61, 61, 61, 0.404), rgba(61, 61, 61, 0.404)), url(../../Images/slider-3.jpg) no-repeat center center;
+    background-size: cover;
+    padding: 100px 0px;
+  }
+
+  .hero-h1{
+      font-size: 50px;
+  }
+  .hero-h1:hover{
+      color: #FF0075;
+  }
+
+  .button-hero{
+    border: 2px solid white;
+    background: none;
+  }
+  .button-hero:hover{
+    background: #FF0075 !important;
+    border: 2px solid #FF0075;
+  }
