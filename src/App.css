@@ -17,7 +17,11 @@ p, span, small {
 .gulapi-background{
     background: #FF0075 !important;
 }
-
+.pages-banner{
+  background:linear-gradient(rgb(152 152 152 / 40%), rgb(152 152 152 / 40%)), url(Images/pages-banner.jpg) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 .button{
     border: 2px solid #172774;
@@ -39,7 +43,10 @@ p, span, small {
     .logo {
       width: 140px !important;
     }
-    .password-authentication-container{
+    .password-authentication-container, .input-box{
       width: 100% !important;
+    }
+    .custom-center{
+      text-align: center;
     }
   }

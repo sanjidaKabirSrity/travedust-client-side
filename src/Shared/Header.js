@@ -21,8 +21,8 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto d-flex align-items-center">
-                        <Nav.Link as={NavLink} activeClassName="selected" className="nav-tab nav-link blue-text" to="/home">Home</Nav.Link>
-                        <Nav.Link href="#link" className="nav-tab nav-link blue-text">Link</Nav.Link>
+                        <Nav.Link as={NavLink} activeclassName="selected" className="nav-tab nav-link blue-text" to="/home">Home</Nav.Link>
+                        <Nav.Link as={NavLink} activeclassName="selected" className="nav-tab nav-link blue-text" to="/add_package">Add Package</Nav.Link>
                         <Button onClick={handleClick} variant='' className="fw-bold mx-4 px-4 rounded-0 button">
                            <Nav.Link as={NavLink} className="btn-text nav-link p-0 blue-text" to="/login">Login</Nav.Link>
                         </Button>

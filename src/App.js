@@ -6,6 +6,8 @@ import Home from './Components/Home/Home';
 import Header from './Shared/Header';
 import Login from './Components/Register/Login';
 import NotFound from './Components/NotFound/NotFound';
+import AddPackage from './Components/AddPackage/AddPackage';
+import Footer from './Shared/Footer';
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
         <Route exact path="/home">
          <Home></Home>
         </Route>
+        <Route exact path="/add_package">
+         <AddPackage></AddPackage>
+        </Route>
         <Route exact path="/login">
          <Login></Login>
         </Route>
@@ -25,6 +30,7 @@ function App() {
          <NotFound></NotFound>
         </Route>
       </Switch>
+      <Footer></Footer>
     </BrowserRouter>
   );
 }

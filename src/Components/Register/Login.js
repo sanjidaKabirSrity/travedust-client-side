@@ -1,12 +1,18 @@
 import React from 'react';
 import { Container , Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link ,useHistory, useLocation } from 'react-router-dom';
 import useFirebase from '../../Hooks/useFirebase';
-import google from '../../Images/google (1).png'
+import google from '../../Images/google (1).png';
+import swal from "sweetalert";
 
 const Login = () => {
-    const { signInUsingGoogle, signInUsingGithub, loginWithEmail, setIsLoading } =useFirebase();
+    const { signInUsingGoogle, loginWithEmail, setIsLoading } =useFirebase();
+
+      // redirect private route
+      const history = useHistory();
+      const location = useLocation();
+      const redirectUrl = location.state?.from || "/";
 
     // form data
     const {
@@ -16,13 +22,50 @@ const Login = () => {
     } = useForm();
     const onSubmit = (data) => {
         const { Email, Password } = data;
-        // handleEmailLogin(Email, Password);
+        handleEmailLogin(Email, Password);
     };
+
+    const handleEmailLogin = (Email, Password) => {
+      loginWithEmail(Email, Password)
+        .then((result) => {
+          // setUser(result.user);
+          history.push(redirectUrl);
+          swal({
+            title: "LogIn Successfull!!",
+            icon: "success",
+          });
+        })
+        .catch((error) => {
+          swal({
+            text: error.message,
+            icon: "error",
+          });
+        });
+    };
+
+    // google redirect
+  const hanldeGoogleLogin = () => {
+    signInUsingGoogle()
+      .then((result) => {
+        history.push(redirectUrl);
+        swal({
+          title: "Successfully Sign In!!",
+          icon: "success",
+        });
+      })
+      .catch((error) => {
+        swal({
+          text: error.message,
+          icon: "error",
+        });
+      })
+      .finally(() => setIsLoading(false));
+  };
 
     return (
         <div>
             <Container fluid className="py-5">
-              <div className="bg-light form-container mt-3 mx-auto px-4 py-5 rounded-0 shadow w-50 password-authentication-container">
+              <div className="bg-light form-container mt-3 mx-auto px-4 py-5 rounded-0 shadow w-50 password-authentication-container animate__animated animate__fadeInDown">
                 <h3 className="blue-text mb-5 text-center">
                   Please <span className="gulapi-text section-title">LogIn</span>
                 </h3>
@@ -74,7 +117,7 @@ const Login = () => {
                 <div className="border-top pt-4 text-center">
                   <div>
                     <Button
-                      onClick={signInUsingGoogle}
+                      onClick={hanldeGoogleLogin}
                       variant="light"
                       className="px-4"
                     >

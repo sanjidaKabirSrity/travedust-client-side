@@ -1,17 +1,20 @@
-.slider-one {
+.slider-one{
     background: linear-gradient(rgba(61, 61, 61, 0.404), rgba(61, 61, 61, 0.404)), url(../../Images/slider-1.jpg) no-repeat center center;
     background-size: cover;
     padding: 100px 0px;
+    background-attachment: fixed;
   }
   .slider-two {
     background: linear-gradient(rgba(61, 61, 61, 0.404), rgba(61, 61, 61, 0.404)), url(../../Images/slider-2.jpg) no-repeat center center;
     background-size: cover;
     padding: 100px 0px;
+    background-attachment: fixed;
   }
   .slider-three {
     background:linear-gradient(rgba(61, 61, 61, 0.404), rgba(61, 61, 61, 0.404)), url(../../Images/slider-3.jpg) no-repeat center center;
     background-size: cover;
     padding: 100px 0px;
+    background-attachment: fixed;
   }
 
   .hero-h1{
