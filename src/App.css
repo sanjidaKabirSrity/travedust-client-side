@@ -37,6 +37,14 @@ p, span, small {
   }
 
 
+  .package-img {
+    transition: 0.9s;
+  }
+  .package-img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+
 
   /* Responsive with media query */
   @media only screen and (max-width: 768px) {
