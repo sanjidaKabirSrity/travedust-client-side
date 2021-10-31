@@ -2,6 +2,7 @@ import React, { useState , useEffect} from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import swal from 'sweetalert';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Container , Button } from 'react-bootstrap';
 
 const UpdateUser = () => {
@@ -16,12 +17,16 @@ const UpdateUser = () => {
 
     const {_id, userImg, img, email,  status, name} = user;
 
+    const history = useHistory();
+    const location = useLocation(); 
+    const redirectUrl = location.state?.from || "/manage_all_order";
+
     console.log(user.status)
     const handleApproveStatus = (id) => {
         user.status = "Approved";
         setUser(user);
 
-        const proceed = window.confirm('Are you sure , you want to delete!');
+        const proceed = window.confirm('Are you sure , you want to Approved this package!');
         if(proceed){
             axios.put(`https://polar-island-28998.herokuapp.com/booking/${singleUserId}`, user)
             .then(result => {
@@ -30,6 +35,7 @@ const UpdateUser = () => {
                         title:"Booking Successfully approved",
                         icon:"success",
                     })
+                    history.push(redirectUrl);
                 }
             })
         }
