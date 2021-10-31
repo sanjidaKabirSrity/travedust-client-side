@@ -5,7 +5,7 @@ import useAuth from '../../Hooks/useAuth';
 import swal from "sweetalert";
 import { useHistory, useLocation } from 'react-router-dom';
 
-const PackageBooking = ({price , photo}) => {
+const PackageBooking = ({price , photo, packageName}) => {
     const history = useHistory();
     const location = useLocation(); 
     const redirectUrl = location.state?.from || "/all_order";
@@ -69,14 +69,14 @@ const PackageBooking = ({price , photo}) => {
                      {errors.email && (
                         <span className="field-error text-danger">Email is required</span>
                     )}
-                    {/* <input 
+                    <input 
                     type="text"
                     placeholder="Package Name" 
-                    {...register("", {required: true})}
-                    value={price}
+                    {...register("package", {required: true})}
+                    value={packageName}
                     style={{ fontSize: "18px" }}
                     className="border-0 form-control mb-4 rounded-0 px-3 py-2"
-                     /> */}
+                     />
                     <input 
                     type="number" 
                     {...register("price", {required: true})}
