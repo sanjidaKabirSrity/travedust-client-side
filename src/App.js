@@ -8,6 +8,12 @@ import Login from './Components/Register/Login';
 import NotFound from './Components/NotFound/NotFound';
 import AddPackage from './Components/AddPackage/AddPackage';
 import Footer from './Shared/Footer';
+import Package from './Components/Package.js/Package';
+import SignUp from './Components/Register/SignUp';
+import ManageAllOrder from './Components/ManageAllOrder/ManageAllOrder';
+import AllOrder from './Components/AllOrder/AllOrder';
+import AllPackages from './Components/Package.js/AllPackages';
+import PrivateRoute from './Shared/PrivateRoute';
 
 function App() {
   return (
@@ -20,11 +26,29 @@ function App() {
         <Route exact path="/home">
          <Home></Home>
         </Route>
+        {/* <Route path="/packages/:packageId">
+         <Package></Package>
+        </Route> */}
+        <PrivateRoute path="/packages/:packageId">
+         <Package></Package>
+        </PrivateRoute>
+        <Route exact path="/packages">
+         <AllPackages></AllPackages>
+        </Route>
+        <Route exact path="/all_order">
+         <AllOrder></AllOrder>
+        </Route>
+        <Route exact path="/manage_all_order">
+         <ManageAllOrder></ManageAllOrder>
+        </Route>
         <Route exact path="/add_package">
          <AddPackage></AddPackage>
         </Route>
         <Route exact path="/login">
          <Login></Login>
+        </Route>
+        <Route exact path="/signUp">
+         <SignUp></SignUp>
         </Route>
         <Route path="*">
          <NotFound></NotFound>

@@ -49,6 +49,7 @@ const AddPackage = () => {
                     {...register("price")} /><br/>
                 <input 
                     className="bg-light mb-2 border-0 d-block mx-auto px-3 py-2 w-50 shadow input-box" 
+                    type="url"
                     style={{outline:'none'}}   
                     placeholder="Image URL Link" 
                     {...register("img")} 

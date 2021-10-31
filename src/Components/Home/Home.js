@@ -2,6 +2,7 @@ import React from 'react';
 import Herosec from '../Home/Herosec';
 import HomeService from '../Home/HomeService';
 import ServiceHomeSec from './ServiceHomeSec';
+import Subscribe from './Subscribe';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <Herosec></Herosec>
             <HomeService></HomeService>
             <ServiceHomeSec></ServiceHomeSec>
+            <Subscribe></Subscribe>
         </div>
     );
 };

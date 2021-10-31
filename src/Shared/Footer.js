@@ -44,7 +44,7 @@ const Footer = () => {
             <div className="blue-background py-3">
                 <Container>
                     <Row className="text-white-50">
-                        <Col xs={8} md={10}><small>© 2021 Wonder Tour. All rights reserved.</small></Col>
+                        <Col xs={8} md={10}><small>© 2021 Travedust. All rights reserved.</small></Col>
                         <Col xs={4} md={2}>
                             <i className="fab fa-facebook-f px-2"></i>
                             <i className="fab fa-google px-2"></i>

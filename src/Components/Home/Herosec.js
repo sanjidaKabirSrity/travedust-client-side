@@ -1,9 +1,14 @@
 import React from 'react';
 import { Carousel, Col, Row, Button } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import "./Herosec.css";
 
 const Herosec = () => {
+    const history = useHistory();
+    const handleClick =() => {
+        history.push('/login')
+    }
+
     return (
         <div>
             <Carousel variant="light">
@@ -19,7 +24,7 @@ const Herosec = () => {
                         <div className="text-center text-white animate__animated animate__zoomIn">
                             <p className="slider-top-text mt-5">BUILD YOUR NEXT HOLIDAY TRIP WITH US</p>
                             <h1 className="banner-title">Create <span className='fw-bold hero-h1'>Your Tour</span></h1>
-                            <Button className="my-5 fw-bold mx-4 px-4 rounded-0 button-hero">
+                            <Button onClick={handleClick} className="my-5 fw-bold mx-4 px-4 rounded-0 button-hero">
                                 <Link activeclassName="btn-selected" className="btn-text nav-link p-0 text-white" to="/login">Get Started</Link>
                             </Button>
                         </div>
@@ -39,7 +44,7 @@ const Herosec = () => {
                         <div className="text-center text-white animate__animated animate__zoomIn">
                             <p className="slider-top-text mt-5">A TEAM OF PROFESSIONAL TRAVEL EXPERTS</p>
                             <h1 className="banner-title">Trust <span className='fw-bold hero-h1'>Our Experience</span></h1>
-                            <Button className="my-5 fw-bold mx-4 px-4 rounded-0 button-hero">
+                            <Button onClick={handleClick} className="my-5 fw-bold mx-4 px-4 rounded-0 button-hero">
                                 <Link activeclassName="btn-selected" className="btn-text nav-link p-0 text-white" to="/login">Get Started</Link>
                             </Button>
                         </div>
@@ -59,7 +64,7 @@ const Herosec = () => {
                         <div className="text-center text-white animate__animated animate__zoomIn">
                             <p className="slider-top-text mt-5">ENJOY THE BEST DESTINATIONS WITH OUR TRAVEL AGENCY</p>
                             <h1 className="banner-title">Explore <span className='fw-bold hero-h1'>The World</span></h1>
-                            <Button className="my-5 fw-bold mx-4 px-4 rounded-0 button-hero">
+                            <Button onClick={handleClick} className="my-5 fw-bold mx-4 px-4 rounded-0 button-hero">
                                 <Link activeclassName="btn-selected" className="btn-text nav-link p-0 text-white" to="/login">Get Started</Link>
                             </Button>
                         </div>

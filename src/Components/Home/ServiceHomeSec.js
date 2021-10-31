@@ -28,8 +28,6 @@ const ServiceHomeSec = () => {
                                         <Card.Title className="gulapi-text" style={{fontSize:'20px'}}>{service.item}</Card.Title>
                                         <Card.Text className="blue-text">{service.description}</Card.Text>
                                     </Col>
-                                    <Card.Footer className="bg-white border-0 pb-3">
-                                    </Card.Footer>
                                 </Row>
                             </Card>
                         </Col>

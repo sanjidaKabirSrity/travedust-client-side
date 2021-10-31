@@ -2,7 +2,7 @@ import React, { useState , useEffect } from 'react';
 import { Col, Container, Row , Card ,Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const HomeService = () => {
+const AllPackages = () => {
     const [packages, setPackages] = useState([])
     useEffect(() => {
         fetch('https://polar-island-28998.herokuapp.com/packages')
@@ -11,15 +11,22 @@ const HomeService = () => {
     }, [])
 
     return (
-            <Container fluid className="py-4" id="packages">
+        <>
+        <div className="pages-banner py-5 text-center text-white">
+            <div className="animate__animated animate__zoomIn py-4">
+            <h2 className="pt-4"><span className="gulapi-text hero-h1">All Packages</span></h2>
+            <p className="pb-4">Home / All Packages / packages</p>
+            </div>
+        </div>
+        <Container fluid className="py-4" id="packages">
                 <Container className="py-5">
                     <h2 className="text-center title blue-text">
-                    {" "}Our Popular 
-                    <span className="gulapi-text" style={{fontSize:'40px'}}> Tour Packeges</span>
+                    {" "}
+                    <span className="gulapi-text" style={{fontSize:'40px'}}>Travedust</span> All Tour Packages
                     </h2>
                     <Row xs={1} md={2} lg={3} className="g-4 text-center gx-4 gy-5 py-4">
                     {
-                        packages.slice(0, 6).map((pack) => (
+                        packages.map((pack) => (
                             <Col key={pack.id} className="h-100">
                                 <Card className="h-100 shadow animate__animated animate__fadeInUp animate__delay-1s">
                                     <div className="overflow-hidden">
@@ -48,7 +55,8 @@ const HomeService = () => {
                     </Row>
                 </Container>
             </Container>
+        </>
     );
 };
 
-export default HomeService;
+export default AllPackages;

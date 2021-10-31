@@ -1,75 +1,70 @@
 import React from 'react';
-import { Container , Button } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import { Container, Button } from 'react-bootstrap';
 import { Link ,useHistory, useLocation } from 'react-router-dom';
-import useFirebase from '../../Hooks/useFirebase';
 import google from '../../Images/google.png';
+import useFirebase from '../../Hooks/useFirebase';
 import swal from "sweetalert";
+import { useForm } from 'react-hook-form';
 
-const Login = () => {
-    const { signInUsingGoogle, loginWithEmail, setIsLoading } = useFirebase();
-
+const SignUp = () => {
+    const {
+        signInUsingGoogle,
+        createNewUserByEmail,
+        setIsLoading,
+      } = useFirebase();
+    
       // redirect private route
       const history = useHistory();
       const location = useLocation();
       const redirectUrl = location.state?.from || "/";
-
-    // form data
-    const {
+    
+      // google redirect
+      const hanldeGoogleLogin = () => {
+        signInUsingGoogle()
+          .then((result) => {
+            history.push(redirectUrl);
+            swal({
+              title: "Successfully Sign In!!",
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            swal({
+              text: error.message,
+              icon: "error",
+            });
+          })
+          .finally(() => setIsLoading(false));
+      };
+    
+      // form data
+      const {
         register,
-        handleSubmit, 
+        handleSubmit,
         formState: { errors },
-    } = useForm();
-    const onSubmit = (data) => {
-        const { Email, Password } = data;
-        handleEmailLogin(Email, Password);
-    };
-
-    const handleEmailLogin = (Email, Password) => {
-      loginWithEmail(Email, Password)
-        .then((result) => {
-          // setUser(result.user);
-          history.push(redirectUrl);
-          swal({
-            title: "LogIn Successfull!!",
-            icon: "success",
-          });
-        })
-        .catch((error) => {
-          swal({
-            text: error.message,
-            icon: "error",
-          });
-        });
-    };
-
-    // google redirect
-  const hanldeGoogleLogin = () => {
-    signInUsingGoogle()
-      .then((result) => {
-        history.push(redirectUrl);
-        swal({
-          title: "Successfully Log In!!",
-          icon: "success",
-        });
-      })
-      .catch((error) => {
-        swal({
-          text: error.message,
-          icon: "error",
-        });
-      })
-      .finally(() => setIsLoading(false));
-  };
-
+      } = useForm();
+      const onSubmit = (data) => {
+        const { Name, Email, Password } = data;
+        createNewUserByEmail(Name, Email, Password);
+      };
     return (
         <div>
             <Container fluid className="py-5">
               <div className="bg-light form-container mt-3 mx-auto px-4 py-5 rounded-0 shadow w-50 password-authentication-container animate__animated animate__fadeInDown">
                 <h3 className="blue-text mb-5 text-center">
-                  Please <span className="gulapi-text section-title">LogIn</span>
+                  Please <span className="gulapi-text section-title">Sign Up</span>
                 </h3>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)}>  
+                  <input 
+                    required 
+                    type="text"
+                    {...register("Name")}
+                    placeholder="Name"
+                    className="border-0 form-control mb-4 rounded-0 px-3 py-2"
+                  />
+                {errors.Name && (
+                    <span className="field-error">This field is required</span>
+                )}
                   <input
                     required
                     type="email"
@@ -105,13 +100,13 @@ const Login = () => {
                     style={{ fontSize: "18px" }}
                     className="blue-text mb-5 button fw-bold py-1 w-100"
                     type="submit"
-                    value="LogIn"
+                    value="Sign Up"
                   />
                   <div className="text-center mb-3">
                     <p className="blue-text d-inline small">
-                      New to Travedust? 
+                      Already have an account
                     </p>
-                      <Link className="gulapi-text text-decoration-none" to="/signUp"> Create a account</Link>
+                      <Link className="gulapi-text text-decoration-none" to="/login"> Log in</Link>
                   </div>
                 </form>
                 <div className="border-top pt-4 text-center">
@@ -132,5 +127,4 @@ const Login = () => {
     );
 };
 
-export default Login;
-
+export default SignUp;

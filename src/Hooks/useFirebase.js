@@ -2,7 +2,6 @@ import {
     getAuth,
     signInWithPopup,
     GoogleAuthProvider,
-    GithubAuthProvider,
     signOut,
     onAuthStateChanged,
     createUserWithEmailAndPassword,
@@ -24,29 +23,11 @@ initializeAuthentication();
     // auth and provider
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
   
     // google sign in
     const signInUsingGoogle = () => {
       setIsLoading(true);
       return signInWithPopup(auth, googleProvider);
-      // .then((result) => {
-      //   console.log(result.user);
-      //   swal({
-      //     title: "Successfully Sign In!!",
-      //     icon: "success",
-      //   });
-      // })
-      // .catch((error) => {
-      //   swal({
-      //     text: error.message,
-      //     icon: "error",
-      //   });
-      // });
-    };
-    const signInUsingGithub = () => {
-      setIsLoading(true);
-      return signInWithPopup(auth, githubProvider);
       // .then((result) => {
       //   console.log(result.user);
       //   swal({
@@ -148,7 +129,6 @@ initializeAuthentication();
   
     return {
       signInUsingGoogle,
-      signInUsingGithub,
       logOut,
       user,
       createNewUserByEmail,
