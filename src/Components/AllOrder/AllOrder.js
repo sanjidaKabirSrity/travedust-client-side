@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState , useEffect} from 'react';
+import { Col, Row ,Container ,Button} from 'react-bootstrap';
 import swal from 'sweetalert';
 import useAuth from '../../Hooks/useAuth'
 
@@ -48,17 +49,26 @@ const AllOrder = () => {
                 <p className="pb-4">Home / Packages / Package / Booking Package</p>
                 </div>
             </div>
-            <div>
+            <Container className="py-5">
                 {
                     booking.map(book => <div key={book._id}>
-                        <h3>{book.package}</h3>
-                        <h4>{book.email}</h4>
-                        <p>{book.status}</p>
-                        <button onClick={()=>handleUserDelete(book._id)}>Delete</button>
+                        <Row className="align-items-center bg-light my-4 p-2 rounded-2 shadow">
+                            <Col xs={12} md={4}>
+                                <img src={book.img} className="img-fluid" alt="" />
+                            </Col>
+                            <Col xs={6} md={4}>
+                               <h4 className="gulapi-text">{book.package}</h4>
+                               <h5 className="blue-text">{book.status}</h5>
+                               <h5 className="text-black-50">{book.price} $</h5>
+                            </Col>
+                            <Col xs={6} md={4}>
+                            <Button className="px-4 rounded-0 py-2 button animate__animated animate__backInUp animate__delay-1s blue-text fw-bold" onClick={()=>handleUserDelete(book._id)}>Delete</Button>
+                            </Col>
+                        </Row>
                     </div>)
                 }
                 
-            </div>
+            </Container>
         </div>
     );
 };

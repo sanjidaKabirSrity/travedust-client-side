@@ -16,6 +16,7 @@ import AllPackages from './Components/Package.js/AllPackages';
 import PrivateRoute from './Shared/PrivateRoute';
 import AboutUs from './Components/AboutUs/AboutUs';
 import AuthProvider from './context/AuthProvider';
+import UpdateUser from './Components/ManageAllOrder/UpdateUser';
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
         </Route>
         <Route exact path="/manage_all_order">
          <ManageAllOrder></ManageAllOrder>
+        </Route>
+        <Route exact path="/manage_all_order/:singleUserId">
+         <UpdateUser></UpdateUser>
         </Route>
         <Route exact path="/add_package">
          <AddPackage></AddPackage>
