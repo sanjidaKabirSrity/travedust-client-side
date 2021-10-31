@@ -12,7 +12,7 @@ const Package = () => {
         fetch(`https://polar-island-28998.herokuapp.com/packages/${packageId}`)
         .then(res => res.json())
         .then(data => setPackage(data))
-    }, [])
+    }, [packageId])
 
     return (
         <>

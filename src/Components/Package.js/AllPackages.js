@@ -29,7 +29,7 @@ const AllPackages = () => {
                         packages.map((pack) => (
                             <Col key={pack.id} className="h-100">
                                 <Card className="h-100 shadow animate__animated animate__fadeInUp animate__delay-1s">
-                                    <div className="overflow-hidden">
+                                    <div className="overflow-hidden" style={{height:"230px"}}>
                                     <Card.Img
                                         className="img-fluid package-img"
                                         variant="top"

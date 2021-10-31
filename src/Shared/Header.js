@@ -44,6 +44,7 @@ const Header = () => {
                                 <Nav.Link as={NavLink} activeclassName="selected" className="nav-tab nav-link blue-text" to="/add_package">Add Package</Nav.Link>
                             )
                         }
+                        <Nav.Link as={NavLink} activeclassName="selected" className="nav-tab nav-link blue-text" to="/about_us">About Us</Nav.Link>
                         <span style={{width:"50px"}}>
                             {user?.photoURL ? (
                             <img className="w-100 rounded-pill" src={user.photoURL} alt="" />

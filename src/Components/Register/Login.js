@@ -11,7 +11,7 @@ const Login = () => {
 
       // redirect private route
       const history = useHistory();
-      const location = useLocation();
+      const location = useLocation(); 
       const redirectUrl = location.state?.from || "/";
 
     // form data

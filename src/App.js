@@ -14,10 +14,15 @@ import ManageAllOrder from './Components/ManageAllOrder/ManageAllOrder';
 import AllOrder from './Components/AllOrder/AllOrder';
 import AllPackages from './Components/Package.js/AllPackages';
 import PrivateRoute from './Shared/PrivateRoute';
+import AboutUs from './Components/AboutUs/AboutUs';
+import AuthProvider from './context/AuthProvider';
 
 function App() {
   return (
-    <BrowserRouter>
+    <div className="App">
+  
+     <AuthProvider>
+     <BrowserRouter>
       <Header></Header>
       <Switch>
         <Route exact path="/">
@@ -44,6 +49,9 @@ function App() {
         <Route exact path="/add_package">
          <AddPackage></AddPackage>
         </Route>
+        <Route exact path="/about_us">
+         <AboutUs></AboutUs>
+        </Route>
         <Route exact path="/login">
          <Login></Login>
         </Route>
@@ -56,6 +64,8 @@ function App() {
       </Switch>
       <Footer></Footer>
     </BrowserRouter>
+     </AuthProvider>
+   </div>
   );
 }
 

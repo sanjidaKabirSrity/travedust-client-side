@@ -60,7 +60,7 @@ initializeAuthentication();
     const createNewUserByEmail = (name, email, password) => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((result) => {
-          setUser(result.user);
+          // setUser(result.user);
           updateProfile(auth.currentUser, {
             displayName: name,
           }).then(() => {});

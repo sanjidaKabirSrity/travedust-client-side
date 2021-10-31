@@ -1,4 +1,5 @@
 import React from 'react';
+import useAuth from '../../Hooks/useAuth';
 import Herosec from '../Home/Herosec';
 import HomeService from '../Home/HomeService';
 import ServiceHomeSec from './ServiceHomeSec';

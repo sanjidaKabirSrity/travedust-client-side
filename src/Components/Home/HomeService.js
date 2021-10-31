@@ -20,7 +20,7 @@ const HomeService = () => {
                     <Row xs={1} md={2} lg={3} className="g-4 text-center gx-4 gy-5 py-4">
                     {
                         packages.slice(0, 6).map((pack) => (
-                            <Col key={pack.id} className="h-100">
+                            <Col key={pack._id} className="h-100">
                                 <Card className="h-100 shadow animate__animated animate__fadeInUp animate__delay-1s">
                                     <div className="overflow-hidden">
                                     <Card.Img

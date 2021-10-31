@@ -2,10 +2,13 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import useFirebase from '../../Hooks/useFirebase';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../Hooks/useAuth';
 
 const PackageBooking = ({price}) => {
     const { register, handleSubmit, reset , formState: { errors } } = useForm();
-    const { user } = useFirebase();
+    const {user} = useAuth();
+    console.log(user?.email);
+    console.log(price);
     const onSubmit = data => {
         console.log(data)
         

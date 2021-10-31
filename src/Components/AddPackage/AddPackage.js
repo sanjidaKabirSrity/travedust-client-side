@@ -2,8 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import swal from "sweetalert";
+import { useHistory, useLocation } from 'react-router-dom';
 
 const AddPackage = () => {
+    const history = useHistory();
+    const location = useLocation();
+    const redirectUrl = location.state?.from || "/packages";
+
     const { register, handleSubmit , reset } = useForm();
     const onSubmit = data => {
         // console.log(data)
@@ -16,6 +21,7 @@ const AddPackage = () => {
                         icon: "success",
                 });
                 reset();
+                history.push(redirectUrl);
             }
         })
     };
