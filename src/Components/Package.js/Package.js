@@ -68,7 +68,7 @@ const Package = () => {
                     </Col>
                 </Row>
             </Container>
-            <PackageBooking price={packag.price}></PackageBooking>
+            <PackageBooking price={packag.price} photo={packag.img}></PackageBooking>
         </>
     );
 };

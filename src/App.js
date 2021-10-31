@@ -31,9 +31,6 @@ function App() {
         <Route exact path="/home">
          <Home></Home>
         </Route>
-        {/* <Route path="/packages/:packageId">
-         <Package></Package>
-        </Route> */}
         <PrivateRoute path="/packages/:packageId">
          <Package></Package>
         </PrivateRoute>

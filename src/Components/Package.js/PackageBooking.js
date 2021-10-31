@@ -1,33 +1,42 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import useFirebase from '../../Hooks/useFirebase';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
+import swal from "sweetalert";
+import { useHistory, useLocation } from 'react-router-dom';
 
-const PackageBooking = ({price}) => {
+const PackageBooking = ({price , photo}) => {
+    const history = useHistory();
+    const location = useLocation(); 
+    const redirectUrl = location.state?.from || "/all_order";
+
     const { register, handleSubmit, reset , formState: { errors } } = useForm();
     const {user} = useAuth();
-    console.log(user?.email);
-    console.log(price);
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
+        data.status = "pending";
+        data.img = photo;
+        data.userImg = user?.photoURL;
         
-        // fetch('http://localhost:5000/booking', {
-        //     method : 'POST' , 
-        //     headers:{
-        //         'content-type':'application/json'
-        //     },
-        //     body:JSON.stringify(data)
-        // })
-        // .then(res => res.json())
-        // .then(result => {
-        //     // console.log(result);
-        //     if(result.insertedId){
-        //         alert('Order Processed Successfully')
-        //         // clearTheCart();
-        //         reset();
-        //     }
-        // })
+        fetch('https://polar-island-28998.herokuapp.com/booking', {
+            method : 'POST' , 
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result);
+            if(result.insertedId){
+                swal({
+                    title: "Properly Booking This Package",
+                    icon: "success",
+                  });
+                reset();
+                history.push(redirectUrl);
+            }
+        })
     };
     return (
         <div>
@@ -40,8 +49,9 @@ const PackageBooking = ({price}) => {
                     <input 
                     type="text" 
                     placeholder="Name"
-                    {...register("name", {required: true})}
                     value={user?.displayName}
+                    // {...register("name")}
+                    {...register("name", {required: true})}
                     style={{ fontSize: "18px" }}
                     className="border-0 form-control mb-4 rounded-0 px-3 py-2"
                      />

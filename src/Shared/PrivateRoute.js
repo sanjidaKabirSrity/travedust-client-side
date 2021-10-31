@@ -7,8 +7,10 @@ const PrivateRoute = ({children, ...rest}) => {
 
     if (isLoading) {
         return (
-        <div className="text-center py-4">
-            <span>Loading...</span>
+        <div className="text-center py-5">
+            <div class="spinner-border text-secondary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
         );
     }

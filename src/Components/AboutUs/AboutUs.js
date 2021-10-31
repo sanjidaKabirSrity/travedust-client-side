@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container , Row , Col , Card } from 'react-bootstrap';
-import useAuth from '../../Hooks/useAuth';
 import AboutGirl from '../../Images/aboutUsWomen.jpg'
 
 const AboutUs = () => {
@@ -17,7 +16,7 @@ const AboutUs = () => {
                 <Row xs={1} className="g-4 text-center g-5 pb-4">
                     <Col className="h-100">
                         <Card className="h-100 shadow-sm animate__animated animate__zoomIn animate__delay-1s d-flex flex-row p-3 border-0">
-                            <Row>
+                            <Row className="align-items-center">
                                 <Col xs={12} md={6} className="overflow-hidden d-flex justify-content-center align-items-center gulapi-text">
                                     <div className="overflow-hidden">
                                     <Card.Img
@@ -29,9 +28,9 @@ const AboutUs = () => {
                                 </Col>
                                 <Col xs={12} md={6} className="py-3 text-start">
                                     <Card.Title className="blue-text">
-                                        <h2>Why choose us</h2>
+                                        <h2 className="mb-5" style={{fontSize:"40px"}}>Why choose us</h2>
                                     </Card.Title>
-                                    <Card.Text className="text-black-50">
+                                    <Card.Text className="text-black-50 lh-lg" style={{fontSize:"20px"}}>
                                         <p>Travel agency is a firm which has full knowledge about tourists product - destinations, modes of travel, climate, accommodation and other areas. a top travel agency Bangladesh and a professional and best tour operator in Bangladesh. Best travel agency and top tour company Dhaka in BD. A travel agency is a private retailer or public service. This provides a variety of travel packages for each destination. It provides trave. Top 10 Travel Agency in Bangladesh-how you know who is the best or top!! After long investigation we found that travel agent is our bes</p>
                                     </Card.Text>
                                 </Col>
