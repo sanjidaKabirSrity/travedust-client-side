@@ -8,7 +8,7 @@ import Login from './Components/Register/Login';
 import NotFound from './Components/NotFound/NotFound';
 import AddPackage from './Components/AddPackage/AddPackage';
 import Footer from './Shared/Footer';
-import Package from './Components/Package.js/Package';
+import Package from './Components/Package.js/Package'; 
 import SignUp from './Components/Register/SignUp';
 import ManageAllOrder from './Components/ManageAllOrder/ManageAllOrder';
 import AllOrder from './Components/AllOrder/AllOrder';
